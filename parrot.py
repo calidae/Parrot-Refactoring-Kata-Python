@@ -19,11 +19,6 @@ class Parrot(object):
     BASE_SPEED = 12
     MAX_SPEED = 24
 
-    def __init__(self, number_of_coconuts, voltage, nailed):
-        self.number_of_coconuts = number_of_coconuts
-        self.voltage = voltage
-        self.nailed = nailed
-
     def speed(self):
         raise NotImplementedError
 
@@ -31,7 +26,7 @@ class Parrot(object):
 class EuropeanParrot(Parrot):
 
     def __init__(self):
-        super(EuropeanParrot, self).__init__(None, None, None)
+        super(EuropeanParrot, self).__init__()
 
     def speed(self):
         return self._european_speed()
@@ -44,7 +39,8 @@ class EuropeanParrot(Parrot):
 class AfricanParrot(Parrot):
 
     def __init__(self, number_of_coconuts):
-        super(AfricanParrot, self).__init__(number_of_coconuts, None, None)
+        super(AfricanParrot, self).__init__()
+        self.number_of_coconuts = number_of_coconuts
 
     def speed(self):
         return self._african_speed()
@@ -57,7 +53,9 @@ class AfricanParrot(Parrot):
 class NorwegianParrot(Parrot):
 
     def __init__(self, voltage, nailed):
-        super(NorwegianParrot, self).__init__(None, voltage, nailed)
+        super(NorwegianParrot, self).__init__()
+        self.voltage = voltage
+        self.nailed = nailed
  
     def speed(self):
         return self._norwegian_speed()
