@@ -60,13 +60,15 @@ class Parrot(object):
 
 
 class EuropeanParrot(Parrot):
-    
+
     def __init__(self, number_of_coconuts, voltage, nailed):
         super(EuropeanParrot, self).__init__(ParrotType.EUROPEAN, number_of_coconuts, voltage, nailed)
 
 
-class AmericanParrot(Parrot):
-    pass
+class AfricanParrot(Parrot):
+
+    def __init__(self, number_of_coconuts, voltage, nailed):
+        super(AfricanParrot, self).__init__(ParrotType.AFRICAN, number_of_coconuts, voltage, nailed)
 
 
 class NorwegianParrot(Parrot):
