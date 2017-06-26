@@ -39,13 +39,16 @@ class Parrot:
         if self.type == ParrotType.AFRICAN:
             return self._african_speed(self.number_of_coconuts)
         if self.type == ParrotType.NORWEGIAN_BLUE:
-            if self.nailed:
-                return 0
-            else: 
-                return self._compute_base_speed_for_voltage(self.voltage)
+            return self._norwegian_speed()
 
         raise ValueError("should be unreachable")
 
+    def _norwegian_speed(self):
+        if self.nailed:
+            return 0
+        else: 
+            return self._compute_base_speed_for_voltage(self.voltage)
+    
     def _compute_base_speed_for_voltage(self, voltage):
        return min([self.MAX_SPEED, voltage * self.BASE_SPEED])
     
