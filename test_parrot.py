@@ -15,6 +15,7 @@
 from parrot import Parrot
 from parrot import EuropeanParrot
 from parrot import AfricanParrot
+from parrot import NorwegianParrot
 from parrot import ParrotType
 
 
@@ -51,25 +52,25 @@ def test_african_parrot_speed_with_norwgian_conditions():
     assert parrot.speed() == 3
 
 def test_norwegian_parrot_speed_nailed():
-    parrot = Parrot(ParrotType.NORWEGIAN_BLUE, 0, 1, True)
+    parrot = NorwegianParrot(0, 1, True)
     assert parrot.speed() == 0
 
 def test_norwegian_parrot_speed_with_one_volt():
-    parrot = Parrot(ParrotType.NORWEGIAN_BLUE, 0, 1, False)
+    parrot = NorwegianParrot(0, 1, False)
     assert parrot.speed() == 12
 
 def test_norwegian_parrot_speed_with_one_volt_and_half():
-    parrot = Parrot(ParrotType.NORWEGIAN_BLUE, 0, 1.5, False)
+    parrot = NorwegianParrot(0, 1.5, False)
     assert parrot.speed() == 18
 
 def test_norwegian_parrot_speed_with_three_volt():
-    parrot = Parrot(ParrotType.NORWEGIAN_BLUE, 0, 3, False)
+    parrot = NorwegianParrot(0, 3, False)
     assert parrot.speed() == 24
 
 def test_norwegian_parrot_speed_with_no_volt():
-    parrot = Parrot(ParrotType.NORWEGIAN_BLUE, 0, 0, False)
+    parrot = NorwegianParrot(0, 0, False)
     assert parrot.speed() == 0
 
 def test_norwegian_parrot_speed_with_african_conditions():
-    parrot = Parrot(ParrotType.NORWEGIAN_BLUE, 1, 1, False)
+    parrot = NorwegianParrot(1, 1, False)
     assert parrot.speed() == 12

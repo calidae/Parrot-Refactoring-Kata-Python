@@ -72,4 +72,7 @@ class AfricanParrot(Parrot):
 
 
 class NorwegianParrot(Parrot):
-    pass 
+
+    def __init__(self, number_of_coconuts, voltage, nailed):
+        super(NorwegianParrot, self).__init__(ParrotType.NORWEGIAN_BLUE, number_of_coconuts, voltage, nailed)
+ 
