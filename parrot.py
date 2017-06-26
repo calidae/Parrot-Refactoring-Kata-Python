@@ -17,18 +17,11 @@ class Parrot(object):
     BASE_SPEED = 12
 
     def speed(self):
-        raise NotImplementedError
-
+        return self.BASE_SPEED
 
 
 class EuropeanParrot(Parrot):
-
-    def __init__(self):
-        super(EuropeanParrot, self).__init__()
-
-    def speed(self):
-        return self.BASE_SPEED
-
+    pass
 
 
 class AfricanParrot(Parrot):
@@ -41,7 +34,6 @@ class AfricanParrot(Parrot):
     def speed(self):
         return max(0, self.BASE_SPEED - self.LOAD_FACTOR * self.number_of_coconuts)
     
-
 
 class NorwegianParrot(Parrot):
     MAX_SPEED = 24
