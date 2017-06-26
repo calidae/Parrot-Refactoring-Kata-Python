@@ -21,7 +21,7 @@ class ParrotType(Enum):
     AFRICAN = 2
     NORWEGIAN_BLUE = 3
 
-class Parrot:
+class Parrot(object):
 
     LOAD_FACTOR = 9
     BASE_SPEED = 12
@@ -60,10 +60,14 @@ class Parrot:
 
 
 class EuropeanParrot(Parrot):
-    pass
+    
+    def __init__(self, number_of_coconuts, voltage, nailed):
+        super(EuropeanParrot, self).__init__(ParrotType.EUROPEAN, number_of_coconuts, voltage, nailed)
+
 
 class AmericanParrot(Parrot):
     pass
+
 
 class NorwegianParrot(Parrot):
     pass 

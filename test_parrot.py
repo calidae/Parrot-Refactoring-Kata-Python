@@ -13,23 +13,24 @@
 # Per molt voltatge que hi apliquem, mai volarà a més de 24 km/h.
 
 from parrot import Parrot
+from parrot import EuropeanParrot
 from parrot import ParrotType
 
 
 def test_european_parrot_speed():
-    parrot = Parrot(ParrotType.EUROPEAN, 0, 0, False)
+    parrot = EuropeanParrot(0, 0, False)
     assert parrot.speed() == 12
 
 def test_european_parrot_speed_nailed():
-    parrot = Parrot(ParrotType.EUROPEAN, 0, 0, True)
+    parrot = EuropeanParrot(0, 0, True)
     assert parrot.speed() == 12
 
 def test_european_parrot_speed_one_coco():
-    parrot = Parrot(ParrotType.EUROPEAN, 1, 0, False)
+    parrot = EuropeanParrot(1, 0, False)
     assert parrot.speed() == 12
 
 def test_european_parrot_speed_with_voltage():
-    parrot = Parrot(ParrotType.EUROPEAN, 0, 1.5, False)
+    parrot = EuropeanParrot(0, 1.5, False)
     assert parrot.speed() == 12
 
 def test_african_parrot_speed():
