@@ -14,13 +14,11 @@
 
 
 class Parrot(object):
-
-    LOAD_FACTOR = 9
     BASE_SPEED = 12
-    MAX_SPEED = 24
 
     def speed(self):
         raise NotImplementedError
+
 
 
 class EuropeanParrot(Parrot):
@@ -34,6 +32,7 @@ class EuropeanParrot(Parrot):
 
 
 class AfricanParrot(Parrot):
+    LOAD_FACTOR = 9
 
     def __init__(self, number_of_coconuts):
         super(AfricanParrot, self).__init__()
@@ -45,6 +44,7 @@ class AfricanParrot(Parrot):
 
 
 class NorwegianParrot(Parrot):
+    MAX_SPEED = 24
 
     def __init__(self, voltage, nailed):
         super(NorwegianParrot, self).__init__()
