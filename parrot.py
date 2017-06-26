@@ -12,16 +12,21 @@
 # El voltatge multiplica la velocitat a la que vola un lloro (com ja havíem dit, 12 km/h), per exemple amb 1.5 V vola a 18 km/h. 
 # Per molt voltatge que hi apliquem, mai volarà a més de 24 km/h.
 
+from abc import ABCMeta
+from abc import abstractmethod
 
 class Parrot(object):
+    __metaclass__ = ABCMeta
     BASE_SPEED = 12
 
+    @abstractmethod
     def speed(self):
         return self.BASE_SPEED
 
 
 class EuropeanParrot(Parrot):
-    pass
+    def speed(self):
+        return super(EuropeanParrot, self).speed()
 
 
 class AfricanParrot(Parrot):
