@@ -30,7 +30,7 @@ class EuropeanParrot(Parrot):
 
 
 class AfricanParrot(Parrot):
-    LOAD_FACTOR = 9
+    __LOAD_FACTOR = 9
 
     def __init__(self, number_of_coconuts):
         super(AfricanParrot, self).__init__()
@@ -46,12 +46,12 @@ class AfricanParrot(Parrot):
         )
 
     def _coconut_drift(self):
-        return self.LOAD_FACTOR * self.number_of_coconuts
+        return self.__LOAD_FACTOR * self.number_of_coconuts
     
 
 
 class NorwegianParrot(Parrot):
-    MAX_SPEED = 24
+    __MAX_SPEED_UNDER_VOLTAGE = 24
 
     def __init__(self, voltage, nailed):
         super(NorwegianParrot, self).__init__()
@@ -65,4 +65,7 @@ class NorwegianParrot(Parrot):
         )
     
     def _compute_speed_for_voltage(self):
-       return min([self.MAX_SPEED, self.voltage * super(NorwegianParrot, self).speed()])
+       return min(
+           self.__MAX_SPEED_UNDER_VOLTAGE,
+           self.voltage * super(NorwegianParrot, self).speed()
+        )
