@@ -34,29 +34,8 @@ class Parrot(object):
         self.nailed = nailed
 
     def speed(self):
-        if self.type == ParrotType.AFRICAN:
-            return self._african_speed()
-        if self.type == ParrotType.NORWEGIAN_BLUE:
-            return self._norwegian_speed()
-        if self.type == ParrotType.EUROPEAN:
-            return self._european_speed()
-
+        
         raise ValueError("should be unreachable")
-
-    def _norwegian_speed(self):
-        if self.nailed:
-            return 0
-        else: 
-            return self._compute_base_speed_for_voltage(self.voltage)
-
-    def _european_speed(self):
-        return self.BASE_SPEED
-    
-    def _african_speed(self):
-        return max(0, self.BASE_SPEED - self.LOAD_FACTOR * self.number_of_coconuts)
-    
-    def _compute_base_speed_for_voltage(self, voltage):
-       return min([self.MAX_SPEED, voltage * self.BASE_SPEED])
 
 
 class EuropeanParrot(Parrot):
@@ -64,11 +43,25 @@ class EuropeanParrot(Parrot):
     def __init__(self, number_of_coconuts, voltage, nailed):
         super(EuropeanParrot, self).__init__(ParrotType.EUROPEAN, number_of_coconuts, voltage, nailed)
 
+    def speed(self):
+        return self._european_speed()
+
+    def _european_speed(self):
+        return self.BASE_SPEED
+
+
 
 class AfricanParrot(Parrot):
 
     def __init__(self, number_of_coconuts, voltage, nailed):
         super(AfricanParrot, self).__init__(ParrotType.AFRICAN, number_of_coconuts, voltage, nailed)
+
+    def speed(self):
+        return self._african_speed()
+
+    def _african_speed(self):
+        return max(0, self.BASE_SPEED - self.LOAD_FACTOR * self.number_of_coconuts)
+    
 
 
 class NorwegianParrot(Parrot):
@@ -76,3 +69,14 @@ class NorwegianParrot(Parrot):
     def __init__(self, number_of_coconuts, voltage, nailed):
         super(NorwegianParrot, self).__init__(ParrotType.NORWEGIAN_BLUE, number_of_coconuts, voltage, nailed)
  
+    def speed(self):
+        return self._norwegian_speed()
+
+    def _norwegian_speed(self):
+        if self.nailed:
+            return 0
+        else: 
+            return self._compute_base_speed_for_voltage(self.voltage)
+    
+    def _compute_base_speed_for_voltage(self, voltage):
+       return min([self.MAX_SPEED, voltage * self.BASE_SPEED])
