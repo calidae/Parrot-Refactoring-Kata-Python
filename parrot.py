@@ -30,8 +30,8 @@ class Parrot(object):
 
 class EuropeanParrot(Parrot):
 
-    def __init__(self, number_of_coconuts, voltage, nailed):
-        super(EuropeanParrot, self).__init__(number_of_coconuts, voltage, nailed)
+    def __init__(self):
+        super(EuropeanParrot, self).__init__(None, None, None)
 
     def speed(self):
         return self._european_speed()
@@ -43,8 +43,8 @@ class EuropeanParrot(Parrot):
 
 class AfricanParrot(Parrot):
 
-    def __init__(self, number_of_coconuts, voltage, nailed):
-        super(AfricanParrot, self).__init__(number_of_coconuts, voltage, nailed)
+    def __init__(self, number_of_coconuts):
+        super(AfricanParrot, self).__init__(number_of_coconuts, None, None)
 
     def speed(self):
         return self._african_speed()
@@ -56,8 +56,8 @@ class AfricanParrot(Parrot):
 
 class NorwegianParrot(Parrot):
 
-    def __init__(self, number_of_coconuts, voltage, nailed):
-        super(NorwegianParrot, self).__init__(number_of_coconuts, voltage, nailed)
+    def __init__(self, voltage, nailed):
+        super(NorwegianParrot, self).__init__(None, voltage, nailed)
  
     def speed(self):
         return self._norwegian_speed()
