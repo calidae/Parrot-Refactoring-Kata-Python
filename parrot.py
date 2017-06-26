@@ -35,7 +35,7 @@ class Parrot:
 
     def speed(self):
         if self.type == ParrotType.AFRICAN:
-            return self._african_speed(self.number_of_coconuts)
+            return self._african_speed()
         if self.type == ParrotType.NORWEGIAN_BLUE:
             return self._norwegian_speed()
         if self.type == ParrotType.EUROPEAN:
@@ -52,8 +52,8 @@ class Parrot:
     def _european_speed(self):
         return self.BASE_SPEED
     
-    def _african_speed(self, coconut_num):
-        return max(0, self.BASE_SPEED - self.LOAD_FACTOR * coconut_num)
+    def _african_speed(self):
+        return max(0, self.BASE_SPEED - self.LOAD_FACTOR * self.number_of_coconuts)
     
     def _compute_base_speed_for_voltage(self, voltage):
        return min([self.MAX_SPEED, voltage * self.BASE_SPEED])
