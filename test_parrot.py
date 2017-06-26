@@ -12,11 +12,9 @@
 # El voltatge multiplica la velocitat a la que vola un lloro (com ja havíem dit, 12 km/h), per exemple amb 1.5 V vola a 18 km/h. 
 # Per molt voltatge que hi apliquem, mai volarà a més de 24 km/h.
 
-from parrot import Parrot
 from parrot import EuropeanParrot
 from parrot import AfricanParrot
 from parrot import NorwegianParrot
-from parrot import ParrotType
 
 
 def test_european_parrot_speed():

@@ -13,35 +13,25 @@
 # Per molt voltatge que hi apliquem, mai volarà a més de 24 km/h.
 
 
-
-from enum import Enum
-
-class ParrotType(Enum):
-    EUROPEAN = 1
-    AFRICAN = 2
-    NORWEGIAN_BLUE = 3
-
 class Parrot(object):
 
     LOAD_FACTOR = 9
     BASE_SPEED = 12
     MAX_SPEED = 24
 
-    def __init__(self, type, number_of_coconuts, voltage, nailed):
-        self.type = type
+    def __init__(self, number_of_coconuts, voltage, nailed):
         self.number_of_coconuts = number_of_coconuts
         self.voltage = voltage
         self.nailed = nailed
 
     def speed(self):
-        
-        raise ValueError("should be unreachable")
+        raise NotImplementedError
 
 
 class EuropeanParrot(Parrot):
 
     def __init__(self, number_of_coconuts, voltage, nailed):
-        super(EuropeanParrot, self).__init__(ParrotType.EUROPEAN, number_of_coconuts, voltage, nailed)
+        super(EuropeanParrot, self).__init__(number_of_coconuts, voltage, nailed)
 
     def speed(self):
         return self._european_speed()
@@ -54,7 +44,7 @@ class EuropeanParrot(Parrot):
 class AfricanParrot(Parrot):
 
     def __init__(self, number_of_coconuts, voltage, nailed):
-        super(AfricanParrot, self).__init__(ParrotType.AFRICAN, number_of_coconuts, voltage, nailed)
+        super(AfricanParrot, self).__init__(number_of_coconuts, voltage, nailed)
 
     def speed(self):
         return self._african_speed()
@@ -67,7 +57,7 @@ class AfricanParrot(Parrot):
 class NorwegianParrot(Parrot):
 
     def __init__(self, number_of_coconuts, voltage, nailed):
-        super(NorwegianParrot, self).__init__(ParrotType.NORWEGIAN_BLUE, number_of_coconuts, voltage, nailed)
+        super(NorwegianParrot, self).__init__(number_of_coconuts, voltage, nailed)
  
     def speed(self):
         return self._norwegian_speed()
